@@ -1,0 +1,18 @@
+{
+    "name": "arcade-minimap",
+    "dependencies": {
+        "device": "*"
+    },
+    "description": "",
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "minimap.ts"
+    ],
+    "preferredEditor": "tsprj",
+    "testFiles": [
+        "test.ts"
+    ],
+    "version": "0.4.1"
+}
