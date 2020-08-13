@@ -13,7 +13,7 @@ enum MinimapSpriteScale {
 }
 
 //% color=#cfab0c icon="\uf278"
-//% groups='["Images"]'
+//% groups='["Minimap", "Sprites"]'
 namespace minimap {
     // TODO: cannot extend native interfaces (https://github.com/microsoft/pxt/issues/6859),
     //      would prefer to extend Image
@@ -41,8 +41,19 @@ namespace minimap {
     //% scale.defl=MinimapScale.Half
     //% borderWidth.defl=2
     //% borderColor.shadow=colorindexpicker
+    //% blockSetVariable=myMinimap
+    //% group="Minimap" weight=100 blockGap=8
     export function minimap(scale: MinimapScale = MinimapScale.Half, borderWidth = 0, borderColor = 0): Minimap {
         const tilemap = game.currentScene().tileMap;
+
+        if (!tilemap) {
+            return {
+                image: image.create(1, 1),
+                scale,
+                borderWidth,
+                borderColor
+            }
+        }
 
         const numRows = tilemap.areaHeight() >> tilemap.scale
         const numCols = tilemap.areaWidth() >> tilemap.scale
@@ -78,15 +89,17 @@ namespace minimap {
 
     //% block="$minimap image"
     //% minimap.shadow=create_minimap
+    //% group="Minimap" weight=90 blockGap=8
     export function getImage(minimap: Minimap): Image {
         return minimap.image
     }
 
     //% block="draw $sprite on $minimap || at $spriteScale scale"
     //% minimap.shadow=variables_get
-    //% minimap.defl=minimap
+    //% minimap.defl=myMinimap
     //% sprite.shadow=variables_get
     //% sprite.defl=mySprite
+    //% group="Sprites" weight=80 blockGap=8
     export function includeSprite(minimap: Minimap, sprite: Sprite, spriteScale = MinimapSpriteScale.MinimapScale) {
         const scale = Math.max(minimap.scale - spriteScale, 0)
         const x = (sprite.x >> minimap.scale) - ((sprite.width / 2) >> scale) + minimap.borderWidth
