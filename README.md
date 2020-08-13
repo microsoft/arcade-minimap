@@ -31,6 +31,14 @@ To constantly update the minimap based on sprite movement and tilemap changes, u
 ### Example projects
 See the forums: https://forum.makecode.com/t/minimap-extension-beta/1709
 
+### Performance considerations
+If you're updating the minimap with an "on game update" or "forever" block, be aware that this can slow your game down a lot if:
+ - many sprites are being draw to the minimap
+ - the tilemap is very large
+ - the updates are happening faster than every 500ms
+
+If you notice your game running slow, try reducing the speed at which you update the minimap.
+
 ## Edit this extension
 
 To edit this repository in MakeCode.
