@@ -1,14 +1,5 @@
 # Minimaps ![Build status badge](https://github.com/microsoft/arcade-minimap/workflows/MakeCode/badge.svg)
 
-## Add this extension
-
-This repository can be added as an **extension** in MakeCode.
-
-* open https://arcade.makecode.com/
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for the URL of this repository and import
-
 ## Use this extension
 
 This extension allows you to create "minimaps". Minimaps are smaller representations of the tilemap and optionally any sprites you would like to include.
@@ -38,6 +29,15 @@ If you're updating the minimap with an "on game update" or "forever" block, be a
  - the updates are happening faster than every 500ms
 
 If you notice your game running slow, try reducing the speed at which you update the minimap.
+
+## Add this extension
+
+This repository can be added as an **extension** in MakeCode.
+
+* open https://arcade.makecode.com/
+* click on **New Project**
+* click on **Extensions** under the gearwheel menu
+* search for the URL of this repository and import
 
 ## Edit this extension
 
